@@ -13,9 +13,15 @@ class Course(models.Model):
         return self.title
 
 class Subject(models.Model):
+    title = models.CharField(max_length=100)
     subject_tutor = models.CharField(max_length=100)
-    price = models.TextField(max_length=100)
-    detail = models.TextField(max_length=100)
+    description = models.TextField(max_length=500)
+    image = models.ImageField(null=False, upload_to='images/')
+    price = models.CharField(max_length=100)
+    detail = models.CharField(max_length=100)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
 
 

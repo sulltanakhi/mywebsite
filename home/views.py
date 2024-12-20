@@ -5,3 +5,10 @@ from django.http import HttpResponse
 def index(request):
     # return HttpResponse("Hello Django!")
     return render(request,'index.html')
+def about(request):
+    # return  HttpResponse(request, "about.html")
+    return render(request,'about.html')
+
+def contact(request):
+    # return  HttpResponse(request, "contact.html")
+    return render(request, 'contact.html')
