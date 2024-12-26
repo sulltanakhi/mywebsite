@@ -17,7 +17,16 @@
   </div>
 </section>
 <!-- /page title -->
-
+<div style = 'text-align: centre; '>
+     <p>{% if messages %}
+               {% for message in messages %}
+                   <div class="alert alert-{{message.text}}" role = 'alert'>
+                        {{ message }}
+                   </div>
+               {% endfor %}
+        {% endif %}
+     </p>
+</div>
 <!-- contact -->
 <section class="section bg-gray">
   <div class="container">
@@ -53,5 +62,7 @@
   <!-- Google Map -->
   <div id="map_canvas" data-latitude="51.507351" data-longitude="-0.127758"></div>
 </section>
+
+
 <!-- /gmap -->
 {% endblock %}

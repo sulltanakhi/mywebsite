@@ -9,7 +9,10 @@ class CourseAdmin(admin.ModelAdmin):
 
 admin.site.register(Course,CourseAdmin)
 
-admin.site.register(Subject)
+class SubjectAdmin(admin.ModelAdmin):
+    list_display = ["title", "image_tag"]
+
+admin.site.register(Subject, SubjectAdmin)
 
 admin.site.register(Student)
 

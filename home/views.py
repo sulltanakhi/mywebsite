@@ -5,12 +5,13 @@ from django.contrib import messages
 
 from course.models import Course, Subject, Tutor
 from .models import Setting, ContactForm, ContactMessage
+from course.models import Student
 
 
 # Create your views here.
 
 def index(request):
-    setting = Setting.objects.all()
+    setting = Setting.objects.get()
     course = Course.objects.all()
     course_cr = Course.objects.all().order_by('id')[:4]
     subject_cr = Subject.objects.all().order_by('id')[:3]
@@ -57,3 +58,26 @@ def tutors(request):
                'setting' : setting,
     }
     return render(request, 'tutors.html', context)
+
+
+def students(request):
+    student = Student.objects.all()
+    student_cr = Student.objects.all().order_by('id')[:3]
+    setting = Setting.objects.get()
+    context = {
+               'student_cr' : student_cr,
+               'student' : student,
+               'setting' : setting,
+    }
+    return render(request, 'students.html', context)
+
+def subject(request):
+    subject = Subject.objects.all()
+    subject_cr = Student.objects.all().order_by('id')[:3]
+    setting = Setting.objects.get()
+    context = {
+               'subject_cr' : subject_cr,
+               'subject' : subject,
+               'setting' : setting,
+    }
+    return render(request, 'subjects.html', context)
