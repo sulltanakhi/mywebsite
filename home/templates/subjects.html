@@ -107,11 +107,12 @@ Rest, [25.12.2024 7:18]
         {% for sub in subject %}
       <div data-ref="mixitup-target" class="col-lg-4 col-sm-6 mb-5 business-study">
         <div class="card border-0 rounded-0 hover-shadow">
-          <img class="card-img-top rounded-0" src="{% static '{{ sub.image.url }}' %}" alt="teacher">
+          <img class="card-img-top rounded-0" src="{{ sub.image.url }}" alt="teacher">
           <div class="card-body">
-            <a href="teacher-single.html">
+            <a href="{% url 'subject_detail' sub.id sub.slug %}">
               <h4 class="card-title">{{ sub.name }}</h4>
             </a>
+              <a href="{% url 'subject_detail' sub.id sub.slug %}">Link</a>
             <p>{{ sub.description }}</p>
             <ul class="list-inline">
               <li class="list-inline-item"><a class="text-color" href="#"><i class="ti-facebook"></i></a></li>

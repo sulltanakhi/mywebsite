@@ -32,6 +32,7 @@ urlpatterns = [
     path('tutors/', h_views.tutors, name='tutors'),
     path('students/', h_views.students, name='student'),
     path('subject/', h_views.subject, name='subject'),
+    path('subject/<int:id>/<slug:slug>', h_views.subject_detail, name='subject_detail'),
     path('',include('home.urls')),
 ]
 

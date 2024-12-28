@@ -81,3 +81,15 @@ def subject(request):
                'setting' : setting,
     }
     return render(request, 'subjects.html', context)
+
+
+def subject_detail(request, id, slug):
+    course = Course.objects.all()
+    subject_cr = Subject.objects.all().order_by('id')[:3]
+    subject = Subject.objects.get(pk=id)
+    context = {
+               'subject': subject,
+               'course': course,
+               'subject_cr': subject_cr,
+    }
+    return render(request, "subject_detail.html", context)
